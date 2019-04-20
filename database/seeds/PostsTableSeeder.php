@@ -11,7 +11,7 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
+      /*  DB::table('posts')->insert([
         	'id'->bigInteger::random;
            'post_autor'->unsignedInteger::random;
            'post_date'->timestamp::random;
@@ -21,9 +21,7 @@ class PostsTableSeeder extends Seeder
            'post_name'->Str::random;
            'post_type'->Str::random;
            'post_category'->text::random;
-          
-        ])
-    }
-    }
+          */
+      factory(App\Post::class, 20)->create();
     }
 }

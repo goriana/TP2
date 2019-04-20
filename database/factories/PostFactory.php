@@ -15,15 +15,20 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Posts::class, function (
+$factory->define(App\Post::class, function (
 Faker $faker){
 	$users = App\User::pluck('id')->toArray();
-        return[
-        'post_autor'=>$faker->randomElement($users),
-        'post_date'=>$faker->now();
-        'post_content'=>$faker->paragraph(rand(2,10),true);
-        'post_title'=>$faker->sentence();
-        'post_name'=>$faker->word();
-        'post_type'=>$faker->'article';
-        ])];
+        $dateTime = Carbon\Carbon::now();
+        $status = 'published';
+        $type = 'article';
+        return[  
+        'post_autor' => $faker->randomElement($users),
+        'post_date' => $dateTime,
+        'post_content' => $faker->paragraph(rand(2,10),true),
+        'post_title' => $faker->sentence(),
+        'post_status' => $faker->randomElement($status),
+        'post_name' => $faker->word(),
+        'post_type' => $faker->randomElement($type),
+        'post_category' => $faker->randomElement(['Economics', 'Politics', 'Healthcare', 'Sports']),
+        ];
 });
