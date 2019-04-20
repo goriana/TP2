@@ -13,8 +13,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use Faker\Generator as Faker;
+
 $factory->define(App\Posts::class, function (
-Faker\Generator $faker){
+Faker $faker){
 	return[
         'id'=>$faker->bigInteger();
         'contact_name'=>$faker->Str();

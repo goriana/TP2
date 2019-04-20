@@ -15,15 +15,13 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Posts::class, function (
-Faker $faker){
-	$users = App\User::pluck('id')->toArray();
-        return[
-        'post_autor'=>$faker->randomElement($users),
-        'post_date'=>$faker->now();
-        'post_content'=>$faker->paragraph(rand(2,10),true);
-        'post_title'=>$faker->sentence();
-        'post_name'=>$faker->word();
-        'post_type'=>$faker->'article';
-        ])];
+$factory->define(App\User::class, function (Faker $faker) {
+	static $password;
+    return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'email_verified_at' => now(),
+        'password' => $password ?: = bcryp('secret'), // secret
+        'remember_token' => Str::random(10),
+    ];
 });
