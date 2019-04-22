@@ -15,7 +15,7 @@ class CreateContactTable extends Migration
     {
         Schema::dropIfExists('contact');
         Schema::create('contact', function (Blueprint $table){
-           $table->integer('id');
+           $table->bigInteger('id');
            $table->string('contact_name');
            $table->string('contact_email');
            $table->string('contact_message');

@@ -18,7 +18,6 @@ use Faker\Generator as Faker;
 $factory->define(App\Contact::class, function (
 Faker $faker){
 	return[
-        'id'=>$faker->bigInteger(),
         'contact_name'=>$faker->Str(),
         'contact_email'=>$faker->Str().'@gmail.com',
         'contact_message'=>$faker->Str(),

@@ -20,6 +20,5 @@ class ContactTableSeeder extends Seeder
         */
           factory(App\Contact::class, 20)->create();
 
-         ])}
-    }
+       }
 }
