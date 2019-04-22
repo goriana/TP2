@@ -1,4 +1,4 @@
-x<?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,12 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->bigInteger('id', TRUE)->unsigned();
             $table->string('user_login')->unique();
             $table->string('password');
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();         
         });
     }
 

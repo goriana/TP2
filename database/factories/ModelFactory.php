@@ -25,14 +25,13 @@ Faker $faker){
    ];
 });
 
-$factory->define(App\Post::class, function (
-Faker $faker){
-	$users = App\User::pluck('id')->toArray();
+       $factory->define(App\Post::class, function ( Faker $faker){
+    //    $users = App\User::all()->randomElement()->id;
         $dateTime = Carbon\Carbon::now();
         $status = 'published';
         $type = 'article';
-        return[  
-        'post_autor' => $faker->randomElement($users),
+        return[ 
+        'post_autor' => factory(App\User::class),
         'post_date' => $dateTime,
         'post_content' => $faker->paragraph(rand(2,10),true),
         'post_title' => $faker->sentence(),
@@ -47,10 +46,8 @@ $factory->define(App\User::class, function (Faker $faker) {
 	static $password;
     $dateTime = Carbon\Carbon::now();
     return [
-    	'id' => rand(1,30),
-        'user_login' => $faker->name,
-        'password' => $password ?: $password= bcrypt('secret'),
-        'updated_at' => $dateTime,
+       'user_login' => $faker->name,
+       'password' => bcrypt('secret'), // secret
         // secret
     ];
 });

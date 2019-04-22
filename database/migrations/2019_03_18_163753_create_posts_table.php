@@ -13,7 +13,6 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('posts');
         Schema::create('posts', function(Blueprint $table){
            $table->bigInteger('id', TRUE)->unsigned();
            $table->unsignedInteger('post_autor');
@@ -24,7 +23,7 @@ class CreatePostsTable extends Migration
            $table->string('post_name',200)->default('');
            $table->string('post_type',20)->default('article');
            $table->text('post_category')->nullable();        
-           $table->foreign('post_autor')->references('id')->on('users');
+           $table->foreign('post_autor')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -35,6 +34,11 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+         Schema::dropIfExists('posts');
+         Schema::table('posts',function (Blueprint $table) {
+          $table->dropForeign('post_autor');
+          $table->dropColumn('id');
+
+})
     }
 }

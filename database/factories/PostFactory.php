@@ -15,14 +15,13 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Post::class, function (
-Faker $faker){
-	$users = App\User::pluck('id')->toArray();
+$factory->define(App\Post::class, function ( Faker $faker){
+    //    $users = App\User::all()->randomElement()->id;
         $dateTime = Carbon\Carbon::now();
         $status = 'published';
         $type = 'article';
-        return[  
-        'post_autor' => $faker->randomElement($users),
+        return[ 
+        'post_autor' => factory(App\User::class),
         'post_date' => $dateTime,
         'post_content' => $faker->paragraph(rand(2,10),true),
         'post_title' => $faker->sentence(),
