@@ -3,6 +3,7 @@
 <html>
 <head>
     <title></title>
+
 </head>
 <body>
     @section('menu')
@@ -10,5 +11,6 @@
     <li><a href="Articles">Articles</a></li>
     <li><a href="Contact">Contact</a></li>
     @endsection
+</ul>
 </body>
 </html>

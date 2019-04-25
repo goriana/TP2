@@ -26,5 +26,10 @@
 
 <div class="row medium-8 large-7 columns">
 @yield('content')
+<ul class="post">
+<ul>
+	@foreach ( $posts as $post )
+  	<li>{{ $post->post_title }}</li>
+	@endforeach
 </body>
 </html>
