@@ -4,18 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+
 class ArticleController extends Controller
 {
-   function articles(){
-	$post = \App\Post::find(1); //trouver le post avec l’id 1
-	echo $post->author->name; //affiche le nom de l’auteur
 
-	$users = \App\User::find(1)->posts; //get posts from user id 1
-	foreach ($posts as $post) {
-   //loop on posts
-	};
-    return view('articles', compact('post', 'users'));
-	}
+   public function articles(){
+   	
+   	$posts = \App\Post::latest()->get(); //get all posts
+	   return view('articles',array(
+           'posts' => $posts
+       ));
+}	
+
+
+	public function show($id) {
+   $post = \App\Post::where('id',$id)->first(); //get first post with post_nam == $post_name
+
+   return view('single',array( //Pass the post to the view
+       'post' => $post
+   ));
+}
 }
 
 

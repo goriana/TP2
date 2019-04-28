@@ -11,6 +11,6 @@ class HomeController extends Controller
 	return view('welcome',array(
            'posts' => $posts
        ));
-}
+}	
 }
 ?>
