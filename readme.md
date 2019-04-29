@@ -52,7 +52,7 @@ For getting to the articles section you can
 - click on Articles menu
 
 For getting to a single article section you can 
-- tape http://localhost:8000/id  the id will be the number of the article that you eant to consult
+- tape http://localhost:8000/id  the id will be the number of the article that you want to consult
 - click on one of the articles displayed at the Homepage
 
 For getting to the contact section you can 
