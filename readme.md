@@ -63,6 +63,7 @@ For getting to the contact section you can
 ## Main remarks
 
 It was an interesting exercise, once completed the TP2, the concepts of the course (MVC, Controllers, Databases, Migrations, etc) were clearer.
+
 I wasn't related with this structure of work but with this activity ( reading documentation, reading the supports and changing the code until it works ) the model seems to simplify a lot of concepts that before for me weren't related.
 
 
