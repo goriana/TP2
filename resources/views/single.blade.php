@@ -16,12 +16,17 @@
     <li><a href="#">{{ $post->post_author}}</a></li>   
     <hr>
     <div class="comments">
-    		@foreach ($post-> comments as $comment)
-    		<article>
-    			
-    			{{ $comment -> post_content}}
-    		</article>
+    		<ul class="list-group">
+            
+            @foreach ($post-> comments as $comment)
+    		
+            <li class="list-group-item"> 
+    		
+    			{{ $comment->body}}
+    		</li>
+           
           @endforeach  
+         </ul>
     </div>
     @endsection
 </body>
